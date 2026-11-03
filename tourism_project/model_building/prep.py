@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 df = pd.read_csv("tourism_project/data/tourism.csv")   # complete the code: path to the registered tourism.csv inside the data folder
-df = df.drop(columns=["Unnamed: 0", "CustomerID"], errors="ignore")  # complete the code: drop the customer identifier column, it is not a predictive feature
+df.drop(columns=["Unnamed: 0", "CustomerID"], inplace=True)  # complete the code: drop the customer identifier column, it is not a predictive feature
 
 # "Fe Male" is a typo for "Female" in the raw data
 df["Gender"] = df["Gender"].replace("Fe Male", "Female")
