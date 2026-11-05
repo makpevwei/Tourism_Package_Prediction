@@ -51,7 +51,7 @@ model_pipeline = make_pipeline(preprocessor, xgb_model)   # complete the code to
 # Start MLflow run
 with mlflow.start_run():
     # Hyperparameter tuning with GridSearchCV
-    grid_search = GridSearchCV(model_pipeline, param_grid, cv=5, n_jobs=-1)
+    grid_search = GridSearchCV(model_pipeline, param_grid, cv=5, scoring="f1", n_jobs=-1)
     grid_search.fit(Xtrain, ytrain)
 
     # Log every parameter combination tried during the search as a nested run,
